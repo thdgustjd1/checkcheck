@@ -1,4 +1,4 @@
-package com.example.springjwt.config;
+package com.example.checkcheck.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

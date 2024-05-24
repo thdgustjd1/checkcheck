@@ -1,11 +1,11 @@
-package com.example.springjwt.service;
+package com.example.checkcheck.service;
 
-import com.example.springjwt.dto.JoinDTO;
-import com.example.springjwt.entity.RefreshToken;
-import com.example.springjwt.entity.UserEntity;
-import com.example.springjwt.jwt.JWTUtil;
-import com.example.springjwt.repository.RefreshTokenRepository;
-import com.example.springjwt.repository.UserRepository;
+import com.example.checkcheck.dto.JoinDTO;
+import com.example.checkcheck.entity.RefreshToken;
+import com.example.checkcheck.entity.UserEntity;
+import com.example.checkcheck.jwt.JWTUtil;
+import com.example.checkcheck.repository.RefreshTokenRepository;
+import com.example.checkcheck.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

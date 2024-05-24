@@ -1,13 +1,12 @@
-package com.example.springjwt.controller;
+package com.example.checkcheck.controller;
 
-import com.example.springjwt.dto.JoinDTO;
-import com.example.springjwt.service.JoinService;
+import com.example.checkcheck.dto.JoinDTO;
+import com.example.checkcheck.service.JoinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,13 +17,13 @@ public class JoinController {
     private final JoinService joinService;
 
     @PostMapping("/join")
-    public String joinProcess(JoinDTO joinDTO){
+    public ResponseEntity<String> joinProcess(JoinDTO joinDTO){
         joinService.joinProcess(joinDTO);
-        return "ok";
+        return ResponseEntity.ok("회원가입 완료");
     }
 
     @PostMapping("/accesstoken")
-    public HttpHeaders genNewAccessToken(@RequestHeader(value = "Refresh-Token") String token){
-        return joinService.genNewAccessToken(token);
+    public ResponseEntity<HttpHeaders> genNewAccessToken(@RequestHeader(value = "Refresh-Token") String token){
+        return ResponseEntity.ok(joinService.genNewAccessToken(token));
     }
 }

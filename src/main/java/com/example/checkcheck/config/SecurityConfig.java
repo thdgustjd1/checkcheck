@@ -1,9 +1,9 @@
-package com.example.springjwt.config;
+package com.example.checkcheck.config;
 
-import com.example.springjwt.jwt.JWTFilter;
-import com.example.springjwt.jwt.JWTUtil;
-import com.example.springjwt.jwt.LoginFilter;
-import com.example.springjwt.repository.RefreshTokenRepository;
+import com.example.checkcheck.jwt.JWTFilter;
+import com.example.checkcheck.jwt.JWTUtil;
+import com.example.checkcheck.jwt.LoginFilter;
+import com.example.checkcheck.repository.RefreshTokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

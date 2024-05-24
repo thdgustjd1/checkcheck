@@ -1,4 +1,4 @@
-package com.example.springjwt.controller;
+package com.example.checkcheck.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

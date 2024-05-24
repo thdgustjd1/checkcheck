@@ -1,7 +1,7 @@
-package com.example.springjwt.jwt;
+package com.example.checkcheck.jwt;
 
-import com.example.springjwt.dto.CustomUserDetails;
-import com.example.springjwt.entity.UserEntity;
+import com.example.checkcheck.dto.CustomUserDetails;
+import com.example.checkcheck.entity.UserEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

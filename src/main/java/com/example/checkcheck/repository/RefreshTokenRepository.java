@@ -1,6 +1,6 @@
-package com.example.springjwt.repository;
+package com.example.checkcheck.repository;
 
-import com.example.springjwt.entity.RefreshToken;
+import com.example.checkcheck.entity.RefreshToken;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RefreshTokenRepository extends CrudRepository<RefreshToken, String> {

@@ -1,4 +1,4 @@
-package com.example.springjwt.config;
+package com.example.checkcheck.config;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

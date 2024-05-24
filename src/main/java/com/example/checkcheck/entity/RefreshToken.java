@@ -1,4 +1,4 @@
-package com.example.springjwt.entity;
+package com.example.checkcheck.entity;
 
 
 import lombok.Getter;

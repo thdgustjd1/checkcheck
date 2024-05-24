@@ -1,13 +1,11 @@
-package com.example.springjwt.jwt;
+package com.example.checkcheck.jwt;
 
 
-import com.example.springjwt.dto.CustomUserDetails;
-import com.example.springjwt.entity.RefreshToken;
-import com.example.springjwt.repository.RefreshTokenRepository;
+import com.example.checkcheck.dto.CustomUserDetails;
+import com.example.checkcheck.entity.RefreshToken;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

@@ -1,6 +1,6 @@
-package com.example.springjwt.dto;
+package com.example.checkcheck.dto;
 
-import com.example.springjwt.entity.UserEntity;
+import com.example.checkcheck.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

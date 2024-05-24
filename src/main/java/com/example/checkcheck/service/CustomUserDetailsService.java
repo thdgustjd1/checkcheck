@@ -1,8 +1,8 @@
-package com.example.springjwt.service;
+package com.example.checkcheck.service;
 
-import com.example.springjwt.dto.CustomUserDetails;
-import com.example.springjwt.entity.UserEntity;
-import com.example.springjwt.repository.UserRepository;
+import com.example.checkcheck.dto.CustomUserDetails;
+import com.example.checkcheck.entity.UserEntity;
+import com.example.checkcheck.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

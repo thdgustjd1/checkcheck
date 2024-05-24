@@ -1,7 +1,7 @@
-package com.example.springjwt.jwt;
+package com.example.checkcheck.jwt;
 
-import com.example.springjwt.entity.RefreshToken;
-import com.example.springjwt.repository.RefreshTokenRepository;
+import com.example.checkcheck.entity.RefreshToken;
+import com.example.checkcheck.repository.RefreshTokenRepository;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
