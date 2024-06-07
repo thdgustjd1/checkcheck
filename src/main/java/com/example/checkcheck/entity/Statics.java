@@ -16,7 +16,7 @@ public class Statics {
 
     @ManyToOne
     @JoinColumn
-    private Question question;
+    private QuestionType questionType;
 
     String subject;
     String value;

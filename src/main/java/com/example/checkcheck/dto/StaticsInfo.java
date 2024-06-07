@@ -1,11 +1,13 @@
 package com.example.checkcheck.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class JoinDTO {
-    private String username;
-    private String password;
+@Builder
+public class StaticsInfo {
+    String subject;
+    String value;
 }

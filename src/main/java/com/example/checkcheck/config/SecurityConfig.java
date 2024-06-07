@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -45,29 +46,28 @@ public class SecurityConfig {
 
         //CORS설정으로 포트허용, 모든메서드 허용, authorization 허용등을 해준다. -> 로그인필터 등의 CORS 문제해결
         http
-                .cors((corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
+                .cors((corsCustomizer -> corsCustomizer.configurationSource(request -> {
 
-                    @Override
-                    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+                    CorsConfiguration configuration = new CorsConfiguration();
 
-                        CorsConfiguration configuration = new CorsConfiguration();
+                    configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+                    configuration.setAllowedMethods(Collections.singletonList("*"));
+                    configuration.setAllowCredentials(true);
+                    configuration.setAllowedHeaders(Collections.singletonList("*"));
+                    configuration.setMaxAge(3600L);
 
-                        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
-                        configuration.setAllowedMethods(Collections.singletonList("*"));
-                        configuration.setAllowCredentials(true);
-                        configuration.setAllowedHeaders(Collections.singletonList("*"));
-                        configuration.setMaxAge(3600L);
+                    configuration.setExposedHeaders(Collections.singletonList("Authorization"));
+                    configuration.setExposedHeaders(Collections.singletonList("Refresh-Token"));
 
-                        configuration.setExposedHeaders(Collections.singletonList("Authorization"));
-                        configuration.setExposedHeaders(Collections.singletonList("Refresh-Token"));
-
-                        return configuration;
-                    }
+                    return configuration;
                 })));
 
         //csrf disable
+
         http
                 .csrf((auth) -> auth.disable());
+
+
 
         //From 로그인 방식 disable
         http
@@ -77,11 +77,14 @@ public class SecurityConfig {
         http
                 .httpBasic((auth) -> auth.disable());
 
+
         http
                 .authorizeHttpRequests((auth)->auth
-                        .requestMatchers("/login","/","/join").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/login", "/", "/join","/swagger-ui/**", "swagger-ui.html/**"
+                                , "/v3/**").permitAll()
                         .anyRequest().authenticated());
+
+
 
         http
                 .sessionManagement((session)->session

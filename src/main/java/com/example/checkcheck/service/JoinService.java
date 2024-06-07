@@ -1,6 +1,6 @@
 package com.example.checkcheck.service;
 
-import com.example.checkcheck.dto.JoinDTO;
+import com.example.checkcheck.dto.req.JoinDTO;
 import com.example.checkcheck.entity.RefreshToken;
 import com.example.checkcheck.entity.UserEntity;
 import com.example.checkcheck.jwt.JWTUtil;

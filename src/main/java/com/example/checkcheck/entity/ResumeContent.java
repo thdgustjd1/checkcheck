@@ -20,9 +20,8 @@ public class ResumeContent {
 
     @ManyToOne
     @JoinColumn
-    private Question question;
+    private QuestionType questionType;
 
     String content;
     String answer;
-    String resumeType;
 }

@@ -9,15 +9,14 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Memo {
-
+public class QuestionType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn
-    private Resume resume;
+    private CompanyJob companyJob;
 
-    String content;
+    private String type;
 }

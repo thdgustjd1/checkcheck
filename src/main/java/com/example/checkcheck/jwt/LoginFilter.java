@@ -3,6 +3,7 @@ package com.example.checkcheck.jwt;
 
 import com.example.checkcheck.dto.CustomUserDetails;
 import com.example.checkcheck.entity.RefreshToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,8 +14,10 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -30,9 +33,24 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
             HttpServletRequest request,
             HttpServletResponse response) throws AuthenticationException {
 
+        /*
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, String> jsonRequest = null;
+        try {
+            jsonRequest = mapper.readValue(request.getInputStream(), Map.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        String username = jsonRequest.get(SPRING_SECURITY_FORM_USERNAME_KEY);
+        String password = jsonRequest.get(SPRING_SECURITY_FORM_PASSWORD_KEY);
+        System.out.println(username + " " + password);
+
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
+*/
         //클라이언트 요청에서 username, password 추출
         String username = obtainUsername(request);
-        String password = obtainPassword(request);
+         String password = obtainPassword(request);
 
         //스프링 시큐리티에서 username과 password를 검증하기 위해서는 token에 담아야 함
         UsernamePasswordAuthenticationToken authToken
