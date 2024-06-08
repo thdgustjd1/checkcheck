@@ -11,4 +11,6 @@ import java.util.List;
 public interface ResumeContentRepository extends JpaRepository<ResumeContent, Long> {
     List<ResumeContent> findResumeContentsByResume(Resume resume);
     List<ResumeContent> findResumeContentsByResumeId(Long resumeId);
+
+
 }

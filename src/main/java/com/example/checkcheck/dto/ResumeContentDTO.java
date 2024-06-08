@@ -10,5 +10,5 @@ import lombok.Setter;
 public class ResumeContentDTO {
     Long resumeContentId;
     String question;
-    String content;
+    String answer;
 }

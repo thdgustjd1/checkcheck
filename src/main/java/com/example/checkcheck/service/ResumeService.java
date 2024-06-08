@@ -87,8 +87,9 @@ public class ResumeService {
         Optional<Resume> resume = resumeRepository.findById(resumeId);
         List<ResumeContentDTO> resumeContentDTOS = resumeContentRepository.findResumeContentsByResume(resume.get())
                 .stream().map(resumeContent -> ResumeContentDTO.builder()
+                        .question(resumeContent.getContent())
                         .resumeContentId(resumeContent.getId())
-                        .content(resumeContent.getContent()).build()).collect(Collectors.toList());
+                        .answer(resumeContent.getAnswer()).build()).collect(Collectors.toList());
 
         GetResumeResDTO getResumeResDTO = GetResumeResDTO.builder()
                 .resumeInfo(
@@ -121,8 +122,8 @@ public class ResumeService {
         List<ResumeContentDTO> resumeContentDTO = saveResumeReqDTO.getResumeContentDTOS();
         for (ResumeContentDTO r :resumeContentDTO) {
             Optional<ResumeContent> resumeContent = resumeContentRepository.findById(r.getResumeContentId());
-            resumeContent.get().setContent(r.getContent());
-            resumeContent.get().setAnswer(r.getQuestion());
+            resumeContent.get().setContent(r.getQuestion());
+            resumeContent.get().setAnswer(r.getAnswer());
             resumeContentRepository.save(resumeContent.get());
         }
     }
@@ -130,6 +131,10 @@ public class ResumeService {
     //자기소개서 삭제
     public void deleteResume(Long resumeId) {
         Optional<Resume> resume = resumeRepository.findById(resumeId);
+        List<ResumeContent> resumeContents = resumeContentRepository.findResumeContentsByResume(resume.get());
+        for(ResumeContent r : resumeContents){
+            resumeContentRepository.delete(r);
+        }
         resumeRepository.delete(resume.get());
     }
 
