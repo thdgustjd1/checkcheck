@@ -37,7 +37,7 @@ public class ResumeController {
 
     //회사+직무의 질문 목록 가져오기
     @Operation(summary = "회사+직무의 질문목록 가져오기")
-    @GetMapping("/companies/{company_-name}/jobs/{job-name}")
+    @GetMapping("/companies/{company-name}/jobs/{job-name}")
     public ResponseEntity<GetQuestionResDTO>getQuestions(@PathVariable(value = "company-name")String companyName
             , @PathVariable(value = "job-name")String jobName){
         return ResponseEntity.ok(resumeService.getQuestions(companyName, jobName));
