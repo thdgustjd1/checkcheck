@@ -46,6 +46,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
+
         //CORS설정으로 포트허용, 모든메서드 허용, authorization 허용등을 해준다. -> 로그인필터 등의 CORS 문제해결
         http
                 .cors((corsCustomizer -> corsCustomizer.configurationSource(request -> {
@@ -65,7 +66,6 @@ public class SecurityConfig {
 
                     return configuration;
                 })));
-
         //csrf disable
 
         http
