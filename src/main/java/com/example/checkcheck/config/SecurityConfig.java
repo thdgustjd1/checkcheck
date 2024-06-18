@@ -20,6 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
@@ -57,8 +58,7 @@ public class SecurityConfig {
                     configuration.setAllowedHeaders(Collections.singletonList("*"));
                     configuration.setMaxAge(3600L);
 
-                    configuration.setExposedHeaders(Collections.singletonList("Authorization"));
-                    configuration.setExposedHeaders(Collections.singletonList("Refresh-Token"));
+                    configuration.setExposedHeaders(Arrays.asList("Authorization", "Refresh-Token"));
 
                     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
                     source.registerCorsConfiguration("/**", configuration);
@@ -68,8 +68,8 @@ public class SecurityConfig {
 
         //csrf disable
 
-        http
-                .csrf((auth) -> auth.disable());
+        //http
+         //       .csrf((auth) -> auth.disable());
 
 
 
