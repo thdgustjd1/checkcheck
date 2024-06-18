@@ -7,11 +7,13 @@ public class CorsMvcConfig implements WebMvcConfigurer {
     //프론트단 CORS 해결
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
-
+        /*
         corsRegistry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedOrigins("http://54.254.183.233:3000");
+
+         */
     }
 
 }
