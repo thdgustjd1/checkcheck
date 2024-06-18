@@ -68,8 +68,8 @@ public class SecurityConfig {
 
         //csrf disable
 
-        //http
-         //       .csrf((auth) -> auth.disable());
+        http
+                .csrf((auth) -> auth.disable());
 
 
 
